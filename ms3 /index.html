@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <meta charset="utf-8" />
+    </head>
+
+    <body>
+        <div>
+            <h2>Login</h2>
+            <form id="login">
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" placeholder="Enter username" required />
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" placeholder="Enter password" required />
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+        <script>
+            document.getElementById("login").addEventListener("submit", function(event) {
+                event.preventDefault();
+    
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+    
+                if (username === "admin" && password === "admin") {
+                    window.location.href = "admin.html";
+                    //alert("Login Successful. You will be logged in as Admin");
+                } else if (username === "banker" && password === "banker") {
+                    window.location.href = "banker.html";
+                   //alert("Login Successful.");
+                } else if (username === "client" && password === "client") {
+                    window.location.href = "client.html";
+                    //alert("Login Successful.");
+                } else {
+                    alert("Invalid Username/Password.");
+                    return;
+                }
+            });
+        </script>
+    </body>
+</html>
