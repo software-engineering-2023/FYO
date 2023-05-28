@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FYO Bank - Add/Remove Banker</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      display: flex;
+      flex-direction: column;
+      background-color: #f2f0ff;
+    }
+    
+    .container {
+      width: 100%;
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .logo-panel {
+      background-color: #84368c;
+      padding: 10px;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 48px;
+      font-weight: bold;
+      margin: 0;
+      text-align: center;
+      flex-grow: 1;
+    }
+    
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    
+    .logout-button {
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background-color: #6a2972;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    .logout-button:hover {
+      background-color: #84368c;
+    }
+    
+    .footer {
+      background-color: #84368c;
+      padding: 10px;
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+    }
+    
+    .form-container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    
+    .radio-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    
+    .radio-container label {
+      margin: 0 10px;
+    }
+    
+    .form-field {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .form-field label {
+      width: 150px;
+    }
+    
+    .form-field input[type="text"] {
+      width: 250px;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .form-field button {
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background-color: #6a2972;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    .form-field button:hover {
+      background-color: #84368c;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-panel">
+    <div>
+      <img class="avatar" src="C:\Users\ZenBook\Downloads\MS3_Client\MS3_Client\OnlineBanking-main\img\avatar3.png">
+      <h1 class="welcome-text">Admin</h1>
+    </div>
+    <h1 class="logo">FYO Bank</h1>
+    <a class="logout-button" href="#">Logout</a>
+  </div>
+  
+  <div class="container">
+    <div class="form-container">
+      <div class="radio-container">
+        <label>
+          <input type="radio" name="action" value="add" checked> Add
+        </label>
+        <label>
+          <input type="radio" name="action" value="remove"> Remove
+        </label>
+      </div>
+      
+      <form id="banker-form">
+        <div class="form-field">
+          <label for="banker-name">Banker Name:</label>
+          <input type="text" id="banker-name">
+        </div>
+        <div class="form-field">
+          <label for="banker-id">Banker ID:</label>
+          <input type="text" id="banker-id">
+        </div>
+        <div class="form-field">
+          <button type="submit" id="submit-button">Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <div class="footer">
+    All rights reserved FYO Bank
+  </div>
+  
+  <script>
+    // Get form elements
+    const form = document.getElementById('banker-form');
+    const submitButton = document.getElementById('submit-button');
+    const radioButtons = document.querySelectorAll('input[name="action"]');
+    
+    // Toggle between add and remove forms
+    function toggleForms() {
+      const action = document.querySelector('input[name="action"]:checked').value;
+      
+      if (action === 'add') {
+        submitButton.textContent = 'Add';
+      } else if (action === 'remove') {
+        submitButton.textContent = 'Remove';
+      }
+    }
+    
+    // Add event listener to radio buttons
+    for (let i = 0; i < radioButtons.length; i++) {
+      radioButtons[i].addEventListener('change', toggleForms);
+    }
+    
+    // Initial form visibility
+    toggleForms();
+  </script>
+</body>
+</html>

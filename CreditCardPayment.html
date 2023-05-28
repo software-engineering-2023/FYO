@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FYO Bank - Credit Card Payment</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      display: flex;
+      flex-direction: column;
+      background-color: #f2f0ff;
+    }
+    
+    .container {
+      width: 100%;
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .logo-panel {
+      background-color: #84368c;
+      padding: 10px;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 48px;
+      font-weight: bold;
+      margin: 0;
+      text-align: center;
+      flex-grow: 1;
+    }
+    
+    .avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    
+    .logout-button {
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background-color: #6a2972;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    .logout-button:hover {
+      background-color: #84368c;
+    }
+    
+    .title {
+      font-size: 32px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-align: right;
+    }
+    
+    .payment-form {
+      margin-bottom: 20px;
+    }
+    
+    .radio-label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    
+    .payment-amount {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    .payment-input {
+      width: 100%;
+      padding: 5px;
+      font-size: 16px;
+    }
+    
+    .payment-button {
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background-color: #6a2972;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    .payment-button:hover {
+      background-color: #84368c;
+    }
+    
+    .error-message {
+      color: red;
+      margin-top: 5px;
+    }
+    
+    .footer {
+      background-color: #84368c;
+      padding: 10px;
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-panel">
+    <div>
+      <img class="avatar" src="C:\Users\ZenBook\Downloads\MS3_Client\MS3_Client\OnlineBanking-main\img\avatar3.png">
+      <h1 class="welcome-text">Admin</h1>
+    </div>
+    <h1 class="logo">FYO Bank</h1>
+    <a class="logout-button" href="#">Logout</a>
+  </div>
+  
+  <div class="container">
+    <h2 class="title">Credit Card Payment</h2>
+    
+    <div class="payment-form">
+      <label class="radio-label">
+        <input type="radio" name="payment-type" value="full" checked>
+        Full
+      </label>
+      <label class="radio-label">
+        <input type="radio" name="payment-type" value="partial">
+        Partial
+      </label>
+      
+      <div class="payment-amount" id="amount-due">
+        Amount Due: <span id="amount-due-value"></span>
+      </div>
+      
+      <div id="payment-section" style="display: none;">
+        <label for="payment-input">Amount to be Paid:</label>
+        <input type="number" id="payment-input" class="payment-input">
+        <button id="pay-button" class="payment-button">Pay</button>
+      </div>
+      
+      <div id="error-message" class="error-message"></div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    All rights reserved FYO Bank
+  </div>
+  
+  <script>
+    const paymentSection = document.getElementById('payment-section');
+    const paymentInput = document.getElementById('payment-input');
+    const amountDue = document.getElementById('amount-due-value');
+    const fullRadio = document.querySelector('input[value="full"]');
+    const partialRadio = document.querySelector('input[value="partial"]');
+    const payButton = document.getElementById('pay-button');
+    const errorMessage = document.getElementById('error-message');
+    
+    function generateRandomAmount(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    
+    function updateAmountDue(amount) {
+      amountDue.textContent = amount;
+    }
+    
+    function resetPaymentSection() {
+      paymentInput.value = '';
+      errorMessage.textContent = '';
+      paymentSection.style.display = 'none';
+    }
+    
+    fullRadio.addEventListener('change', function() {
+      if (this.checked) {
+        const randomAmount = generateRandomAmount(1500, 3000);
+        updateAmountDue(randomAmount.toString());
+        resetPaymentSection();
+        paymentSection.style.display = 'block';
+      }
+    });
+    
+    partialRadio.addEventListener('change', function() {
+      if (this.checked) {
+        const randomAmount = generateRandomAmount(1500, 3000);
+        updateAmountDue(randomAmount.toString());
+        resetPaymentSection();
+        paymentSection.style.display = 'block';
+      }
+    });
+    
+    payButton.addEventListener('click', function() {
+      const paymentAmount = parseInt(paymentInput.value);
+      const currentAmountDue = parseInt(amountDue.textContent);
+      
+      if (partialRadio.checked) {
+        if (paymentAmount > currentAmountDue) {
+          errorMessage.textContent = 'Invalid amount';
+        } else {
+          const updatedAmountDue = currentAmountDue - paymentAmount;
+          updateAmountDue(updatedAmountDue.toString());
+          paymentInput.value = '';
+          errorMessage.textContent = '';
+        }
+      } else if (fullRadio.checked) {
+        if (paymentInput.value !== '') {
+          errorMessage.textContent = 'Please select Partial';
+        } else {
+          updateAmountDue('0');
+        }
+      }
+    });
+    
+    // Initial setup
+    partialRadio.checked = true;
+    partialRadio.dispatchEvent(new Event('change'));
+  </script>
+</body>
+</html>

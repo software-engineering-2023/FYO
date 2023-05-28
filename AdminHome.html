@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FYO Bank - Admin Home</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      display: flex;
+      flex-direction: column;
+      background-color: #f2f0ff;
+      background-image: url("https://www.tripsavvy.com/thmb/56TuzvP76oJSy6KQPGzFT20TPIg=/6292x4559/filters:fill(auto,1)/pound-coins-and-bank-notes-909209056-5b89a83946e0fb005098cfa8.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    
+    .container {
+      width: 100%;
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .logo-panel {
+      background-color: #84368c;
+      padding: 10px;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 0;
+      text-align: center;
+      flex-grow: 1;
+    }
+    
+    .avatar {
+      margin-bottom: 10px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .welcome-text {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      margin: 0;
+    }
+    
+    .logout-button {
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background-color: #6a2972;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    .logout-button:hover {
+      background-color: #84368c;
+    }
+    
+    .welcome-panel {
+      background-color: rgba(106, 41, 114, 0.8);
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .title {
+      font-size: 32px;
+      font-weight: bold;
+      color: #fff;
+      margin: 0 0 30px 0;
+    }
+    
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 18px 36px;
+      margin: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background-color: #6a2972;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    .button:hover {
+      background-color: #84368c;
+    }
+    
+    .footer {
+      background-color: #84368c;
+      padding: 10px;
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-panel">
+    <div>
+      <img class="avatar" src="C:\Users\ZenBook\Downloads\MS3_Client\MS3_Client\OnlineBanking-main\img\avatar3.png" alt="Avatar">
+      <h1 class="welcome-text">Welcome Admin</h1>
+    </div>
+    <h1 class="logo" style="flex-grow: 1;">FYO Bank</h1>
+    <a class="logout-button" href="#">Logout</a>
+  </div>
+  <div class="container">
+    <div class="button-container">
+      <a class="button" href="#">View Complaints</a>
+      <a class="button" href="#">Add/Remove Banker</a>
+    </div>
+  </div>
+  <div class="footer">
+    All rights reserved FYO Bank
+  </div>
+</body>
+</html>
