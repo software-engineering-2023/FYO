@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>FYO</title>
+  <style>
+    /* Add your CSS styles here */
+    body {
+      font-family: Arial, sans-serif;
+      
+      margin: 0;
+      padding: 0;
+      text-align: left;
+       
+    }
+    h2{
+      color: rgb(30, 17, 34);
+      text-align: center;
+    }
+    header {
+      background-color: #450697;
+      color: #fff;
+      text-align: left;
+      padding: 10px;
+    }
+    
+    h1 {
+      margin: 0;
+      padding: 10px;
+      
+    }
+    
+    nav {
+      background-color: #b8afc2;
+      color: #fff;
+      padding: 10px;
+      text-align: right;
+    }
+    
+    nav a {
+      color: rgb(92, 37, 180);
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    
+    nav a.active {
+      font-weight: bold;
+    }
+    
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 5px;
+      padding: 80px;
+    }
+    
+    .grid-item {
+      background-color: rgb(255, 255, 255);
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 60px; /* Increase the padding value to make the buttons bigger */
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .grid-item:hover {
+      background-color: #b8afc2;
+    }
+    
+    section {
+      padding: 700px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .button {
+      background-color: #773c81;
+      color: #fff;
+      border: none;
+      padding: 50px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px 0;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+    
+    .button:hover {
+      background-color: #ccc;
+    }
+    
+    footer {
+      background-color: #450697;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FYO Bank</h1>
+  </header>
+  
+  <nav>
+    <a href="#" class="active">Home</a>
+    <a href="#">Logout</a>
+  </nav>
+  
+  <div class="grid-container">
+    <div class="grid-item" onclick="location.href='#';">
+      <h2>Account requests</h2>
+      
+    </div>
+  
+    <div class="grid-item" onclick="location.href='#';">
+      <h2>Card requests</h2>
+    
+    </div>
+  
+    <div class="grid-item" onclick="location.href='#';">
+      <h2>Loan Requests</h2>
+    </div>
+  
+    <div class="grid-item" onclick="location.href='#';">
+      <h2>Customer Complaints</h2>
+
+    </div>
+  </div>
+  
+  <footer style="margin-top: 6%;">
+    &copy; 2023 FYO. All rights reserved.
+  </footer>
+  
+  <script>
+    // Add script to highlight active navigation link
+    const navLinks = document.querySelectorAll("nav a");
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        navLinks.forEach((link) => link.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
+
