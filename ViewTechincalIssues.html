@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FYO Bank - View Technical Issues</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      display: flex;
+      flex-direction: column;
+      background-color: #f2f0ff;
+    }
+    
+    .container {
+      width: 100%;
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .logo-panel {
+      background-color: #84368c;
+      padding: 10px;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 0;
+      text-align: center;
+      flex-grow: 1;
+    }
+    
+    .avatar {
+      margin-bottom: 10px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    .welcome-text {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      margin: 0;
+    }
+    
+    .logout-button {
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background-color: #6a2972;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    
+    .logout-button:hover {
+      background-color: #84368c;
+    }
+    
+    .content {
+      width: 100%;
+      max-width: 800px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    
+    h1 {
+      margin: 0 0 20px 0;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+    }
+    
+    .footer {
+      background-color: #84368c;
+      padding: 10px;
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-panel">
+    <div>
+      <img class="avatar" src="./img/avatar3.png">
+      <h1 class="welcome-text">Admin</h1>
+    </div>
+    <h1 class="logo" style="flex-grow: 1;">FYO Bank</h1>
+    <a class="logout-button" href="Login.html">Logout</a>
+  </div>
+  <div class="container">
+    <div class="content">
+      <h1>Technical Issues</h1>
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Issue</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td>2023-05-28</td>
+          <td>Server connection error</td>
+          <td>Pending</td>
+        </tr>
+        <tr>
+          <td>2023-05-27</td>
+          <td>Application crash</td>
+          <td>Resolved</td>
+        </tr>
+        <tr>
+          <td>2023-05-26</td>
+          <td>Payment processing delay</td>
+          <td>In progress</td>
+        </tr>
+        <tr>
+          <td>2023-05-25</td>
+          <td>Login authentication issue</td>
+          <td>Investigating</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="footer">
+    All rights reserved FYO Bank
+  </div>
+</body>
+</html>
