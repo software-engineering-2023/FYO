@@ -124,22 +124,51 @@
       font-size: 14px;
       text-align: center;
     }
+    
+    /* Custom styling for the pop-up message */
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 20px;
+      font-size: 18px;
+      border-radius: 5px;
+      z-index: 9999;
+    }
   </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var logoutButton = document.querySelector(".logout-button");
+      logoutButton.addEventListener("click", function(event) {
+        event.preventDefault();
+        var popup = document.createElement("div");
+        popup.className = "popup";
+        popup.textContent = "Logged out successfully";
+        document.body.appendChild(popup);
+        setTimeout(function() {
+          window.location.href = logoutButton.href;
+        }, 900);
+      });
+    });
+  </script>
 </head>
 <body>
   <div class="logo-panel">
     <div>
-      <img class="avatar" src="C:\Users\ZenBook\Downloads\MS3_Client\MS3_Client\OnlineBanking-main\img\avatar3.png" alt="Avatar">
+      <img class="avatar" src="./img/avatar3.png">
       <h1 class="welcome-text">Welcome Admin</h1>
     </div>
     <h1 class="logo" style="flex-grow: 1;">FYO Bank</h1>
-    <a class="logout-button" href="#">Logout</a>
+    <a class="logout-button" href="Login.html">Logout</a>
   </div>
   <div class="container">
     <div class="button-container">
-      <a class="button" href="#">View Complaints</a>
-      <a class="button" href="#">Add/Remove Banker</a>
-    </div>
+      <a class="button" href="ViewTechincalIssues.html">View Technical Issue</a>
+      <a class="button" href="AddRemoveBanker.html">Add/Remove Banker</a>
+    </div>    
   </div>
   <div class="footer">
     All rights reserved FYO Bank
