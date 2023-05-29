@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Application</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            background-color: #28004d;
+            color: #fff;
+        }
+
+        .container {
+            background-color: #4f025b;
+            width: 80%;
+            margin: 5% auto;
+            border-radius: 15px;
+            box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.6);
+            padding: 2%;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #4f025b;
+            font-size: 3.5vh;
+            color: #fff;
+            font-weight: 500;
+            padding: 15px;
+            border-radius: 15px 15px 0 0;
+            margin: -2% -2% 3% -2%;
+        }
+
+        form {
+            border: 1px solid #fff;
+            padding: 2%;
+            border-radius: 15px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            display: block;
+            border-radius: 2px;
+            border: none;
+            background-color: #fff;
+            color: #000;
+            border-bottom: 1px solid #fff;
+            font-size: 2.1vh;
+        }
+
+        fieldset {
+            margin-bottom: 20px;
+        }
+
+        input[type="checkbox"] {
+            margin-top: 5px;
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            width: 12%;
+            color: #fff;
+            font-size: 3vh;
+            background-color: #6a0572;
+            border-radius: 3px;
+            box-shadow: 0px 2px black;
+            border: none;
+            display: block;
+            margin: 1% auto;
+            padding: 0.5%;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4f025b;
+        }
+
+        .w3-top {
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .w3-bar {
+            background-color: #fff !important;
+        }
+
+        .w3-bar-item {
+            color: #28004d !important;
+        }
+
+        .w3-bar-item:hover {
+            background-color: #6a0572 !important;
+        }
+        .w3-top .icon img {
+            vertical-align: middle;
+            width: 35px; /* Adjust the width as per your preference */
+        }
+        .w3-top .icon {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .w3-top .icon span {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .w3-top .notifi-box {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: fit-content;
+            max-width: 400px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1;
+        }
+
+        .w3-top .notifi-box h2 {
+            font-size: 20px;
+            color: #4f025b;
+            margin: 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .w3-top .notifi-item {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .w3-top .notifi-item p {
+            margin: 0;
+            padding: 5px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .w3-top .notifi-box.show {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a href="index.html" class="w3-bar-item w3-button"><b>FYO</b> Bank</a>
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="w3-right w3-hide-small">
+            <a href="transaction.html" class="w3-bar-item w3-button">Transaction</a>
+            <a href="my_account.html" class="w3-bar-item w3-button">Account Details</a>
+            <a href="Credit_card_form.html" class="w3-bar-item w3-button">Card Application</a>
+            <a href="add_beneficiary.html" class="w3-bar-item w3-button">Add beneficiary</a>
+            <a href="loans.html" class="w3-bar-item w3-button">Loan</a>
+            <a href="Login.html" class="w3-bar-item w3-button">Sign up</a>
+            <div class="icon" onclick="toggleNotifi()">
+                <img src="bell.png" alt=""> <span>17</span>
+            </div>
+            <div class="notifi-box" id="box">
+                <h2>Notifications <span>17</span></h2>
+                <div class="notifi-item">
+                    <p>Don't miss your electricity payment</p>
+                    <p>A new certificate Available check it</p>
+                    <p>You have spent 200 pounds</p>
+                    <p>Don't miss your Credit card payment</p>
+                    <p>Points will expire next month</p>
+                    <p>you have recieved 10000 pounds</p>
+                    <p>Low balance alert</p>
+                    <p>Unusual account activity alert</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <br>
+    <div class="container">
+        <h2 class="title">Redeem Credit Points</h2>
+        
+        <div class="points-container">
+          <p class="points-label">Available Points:</p>
+          <p class="points" id="available-points"></p>
+        </div>
+        
+        <div class="redeem-container">
+          <div class="reward">
+            <p class="reward-title">Reward 1</p>
+            <p>Points Needed: 100</p>
+            <button class="redeem-button">Redeem</button>
+            <p class="error-message"></p>
+          </div>
+          <div class="reward">
+            <p class="reward-title">Reward 2</p>
+            <p>Points Needed: 150</p>
+            <button class="redeem-button">Redeem</button>
+            <p class="error-message"></p>
+          </div>
+          <div class="reward">
+            <p class="reward-title">Reward 3</p>
+            <p>Points Needed: 300</p>
+            <button class="redeem-button">Redeem</button>
+            <p class="error-message"></p>
+          </div>
+        </div>
+      </div>
+      </div>
+    <script>
+      function toggleNotifi() {
+          var box = document.getElementById("box");
+          box.classList.toggle("show");
+      }
+    const availablePoints = document.getElementById('available-points');
+    const redeemButtons = document.querySelectorAll('.redeem-button');
+    const errorMessages = document.querySelectorAll('.error-message');
+    
+    function generateRandomPoints(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    
+    function updateAvailablePoints(points) {
+      availablePoints.textContent = points;
+    }
+    
+    function redeemReward(pointsNeeded, rewardIndex) {
+      const currentPoints = parseInt(availablePoints.textContent);
+      
+      if (currentPoints >= pointsNeeded) {
+        const updatedPoints = currentPoints - pointsNeeded;
+        updateAvailablePoints(updatedPoints);
+        errorMessages[rewardIndex].textContent = '';
+      } else {
+        errorMessages[rewardIndex].textContent = 'Insufficient number of points';
+      }
+    }
+    
+    redeemButtons.forEach((button, index) => {
+      button.addEventListener('click', function() {
+        const pointsNeeded = parseInt(this.parentNode.querySelector('p:nth-of-type(2)').textContent.split(':')[1]);
+        redeemReward(pointsNeeded, index);
+      });
+    });
+    
+    // Initial setup
+    updateAvailablePoints(generateRandomPoints(1, 5000));
+  </script>
+</body>
+</html>
