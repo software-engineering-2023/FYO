@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Pay Bill</title>
   <style>
     body {
       background-color: #28004d;
@@ -110,212 +111,197 @@
       text-align: center;
     }
     .w3-top {
-            position: fixed;
-            width: 100%;
-            z-index: 1;
-        }
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
 
-        .w3-bar {
-            background-color: #fff !important;
-        }
+.w3-bar {
+    background-color: #fff !important;
+}
 
-        .w3-bar-item {
-            color: #28004d !important;
-        }
+.w3-bar-item {
+    color: #28004d;
+}
 
-        .w3-bar-item:hover {
-            background-color: #6a0572 !important;
-        }
+.w3-bar-item:hover {
+    color: #fff !important;
+    background-color: #6a0572 !important;
+}
 
-        .w3-top .icon img {
-            vertical-align: middle;
-            width: 35px; /* Adjust the width as per your preference */
-        }
-        .w3-top .icon {
-            position: relative;
-            display: inline-block;
-            cursor: pointer;
-        }
+.w3-top .icon img {
+    vertical-align: middle;
+    width: 35px; /* Adjust the width as per your preference */
+}
 
-        .w3-top .icon span {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background-color: red;
-            color: white;
-            width: 20px;
-            height: 20px;
-            line-height: 20px;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 12px;
-            font-weight: bold;
-        }
+.w3-top .icon {
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+}
 
-        .w3-top .notifi-box {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            width: fit-content;
-            max-width: 400px;
-            background-color: #ffffff;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            padding: 10px;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-            z-index: 1;
-        }
+@media (max-width: 768px) {
+    .w3-top .icon {
+        right: 10px;
+    }
+}
 
-        .w3-top .notifi-box h2 {
-            font-size: 20px;
-            color: #ffffff;
-            margin: 0;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #e0e0e0;
-        }
+@media (min-width: 768px) {
+    .w3-top .icon {
+        right: 20px;
+    }
+}
 
-        .w3-top .notifi-item {
-            max-height: 200px;
-            overflow-y: auto;
-        }
+.w3-top .icon span {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
 
-        .w3-top .notifi-item p {
-            margin: 0;
-            padding: 5px 0;
-            border-bottom: 1px solid #e0e0e0;
-        }
+.w3-top .notifi-box {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: fit-content;
+    max-width: 400px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    z-index: 1;
+}
 
-        .w3-top .notifi-box.show {
-            opacity: 1;
-            visibility: visible;
-        }
+.w3-top .notifi-box h2 {
+    font-size: 20px;
+    color: #ffffff;
+    margin: 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0;
+}
 
-        
-        /* Navbar styles */
+.w3-top .notifi-item {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.w3-top .notifi-item p {
+    margin: 0;
+    padding: 5px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.w3-top .notifi-box.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Navbar styles */
 nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav li {
-  display: inline-block;
+    display: inline-block;
+    position: relative; /* Added position relative */
 }
 
 nav a {
-  display: block;
-  padding: 10px;
-  text-decoration: none;
-  color: #333;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
 }
 
 /* Dropdown menu styles */
 .dropdown:hover .dropdown-menu {
-  display: block;
+    display: block;
 }
 
 .dropdown-menu {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  padding: 0;
+    top: 100%;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 0;
+    margin-top: -15px;
 }
 
 .dropdown-menu li {
-  display: block;
+    display: block;
 }
 
 .dropdown-menu a {
-  padding: 10px;
-  color: #333;
+    padding: 10px;
+    color: #333;
 }
 
 .dropdown-menu a:hover {
-  background-color: #ccc;
+    color: #FFF;
+    background-color: #6a0572
 }
 
   </style>
 </head>
 <body>
-    <div class="w3-top">
-        <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-            <!--
-            <a href="index.html" class="w3-bar-item w3-button"><b>FYO</b> Bank</a>
-            -->
-            <!-- Float links to the right. Hide them on small screens -->
-            <!--
-            <div class="w3-right w3-hide-small">
-                <a href="transaction.html" class="w3-bar-item w3-button dropdown">Transaction</a>
-                <a href="my_account.html" class="w3-bar-item w3-button">Account Details</a>
-                <a href="Credit_card_form.html" class="w3-bar-item w3-button">Card Application</a>
-                <a href="add_beneficiary.html" class="w3-bar-item w3-button">Add beneficiary</a>
-                <a href="loans.html" class="w3-bar-item w3-button">Loan</a>
-                <a href="Login.html" class="w3-bar-item w3-button">Sign up</a>
-                <div class="icon" onclick="toggleNotifi()">
-                    <img src="bell.png" alt=""> <span>17</span>
-                </div>
-                <div class="notifi-box" id="box">
-                    <h2>Notifications <span>17</span></h2>
-                    <div class="notifi-item">
-                        <p>Don't miss your electricity payment</p>
-                        <p>A new certificate Available check it</p>
-                        <p>You have spent 200 pounds</p>
-                        <p>Don't miss your Credit card payment</p>
-                        <p>Points will expire next month</p>
-                        <p>you have recieved 10000 pounds</p>
-                        <p>Low balance alert</p>
-                        <p>Unusual account activity alert</p>
-                    </div>
-                </div>
-            </div>
-            -->
-            <!---->
-            <nav>
-                <ul>
-                    <li><a href="Client.html" class="w3-bar-item w3-button"><b>FYO</b> Bank</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="w3-bar-item w3-button">Transaction</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="add_beneficiary.html">Transfer through account</a></li>
-                            <li><a href="transaction.html">Pay with card</a></li>
-                            <li><a href="#">Pay bills</a></li>
-                        </ul>
-                    </li>
-                  <li><a href="my_account.html" class="w3-bar-item w3-button">Account Details</a></li>
-                  <li><a href="Credit_card_form.html" class="w3-bar-item w3-button">Card Application</a></li>
-                  <li><a href="Report.html" class="w3-bar-item w3-button">Report</a></li>
-                  <li class="dropdown">
-                    <a href="loans.html" class="w3-bar-item w3-button">Loan</a>
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <nav>
+            <ul>
+                <li><a href="Client.html" class="w3-bar-item w3-button"><b>FYO</b> Bank</a></li>
+                <li class="dropdown">
+                    <a href="#" class="w3-bar-item w3-button">Transaction</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Apply for loan</a></li>
-                        <li><a href="#">Pay installment</a></li>
+                        <li><a href="add_beneficiary.html">Transfer through account</a></li>
+                        <li><a href="transaction.html">Pay with card</a></li>
+                        <li><a href="Pay_Bill.html">Pay bills</a></li>
+                        <li><a href="Loan_Payment.html">Loan installments</a></li>
+                        <li><a href="Transaction_History.html">Transaction history</a></li>
                     </ul>
-                  </li>
-                  <li><a href="Login.html" class="w3-bar-item w3-button">Sign up</a></li>
-                  <div class="icon" onclick="toggleNotifi()">
-                    <img src="bell.png" alt=""> <span>17</span>
-                </div>
-                <div class="notifi-box" id="box">
-                    <h2>Notifications <span>17</span></h2>
-                    <div class="notifi-item">
-                        <p>Don't miss your electricity payment</p>
-                        <p>A new certificate Available check it</p>
-                        <p>You have spent 200 pounds</p>
-                        <p>Don't miss your Credit card payment</p>
-                        <p>Points will expire next month</p>
-                        <p>you have recieved 10000 pounds</p>
-                        <p>Low balance alert</p>
-                        <p>Unusual account activity alert</p>
-                    </div>
-                </div>
-              </ul>
-              </nav>
+                </li>
+              <li><a href="my_account.html" class="w3-bar-item w3-button">Open/Close Account</a></li>
+              <li><a href="Credit_card_form.html" class="w3-bar-item w3-button">Card Application</a></li>
+              <li><a href="Report.html" class="w3-bar-item w3-button">Report</a></li>
+              <li><a href="loans.html" class="w3-bar-item w3-button">Apply For Loan</a></li>
+              <li><a href="Reminder.html" class="w3-bar-item w3-button">Reminders</a></li>
+              <li><a href="RedeemPoints.html" class="w3-bar-item w3-button">Your Points</a></li>
+              <li class="w3-bar-item w3-button"></li>
+              <li style="position: relative; margin-left: 2%; margin-right: 2%;"><a href="Login.html" class="w3-bar-item w3-button">Log out</a></li>
+              <div class="icon" onclick="toggleNotifi()">
+                <img src="bell.png" alt=""> <span>17</span>
             </div>
-        </div>
-            <br>
+            <div class="notifi-box" id="box">
+                <h2>Notifications <span>17</span></h2>
+                <div class="notifi-item">
+                    <p>Don't miss your electricity payment</p>
+                    <p>A new certificate Available check it</p>
+                    <p>You have spent 200 pounds</p>
+                    <p>Don't miss your Credit card payment</p>
+                    <p>Points will expire next month</p>
+                    <p>you have recieved 10000 pounds</p>
+                    <p>Low balance alert</p>
+                    <p>Unusual account activity alert</p>
+                </div>
+            </div>
+          </ul>
+          </nav>
+    </div>
+</div>
+<br>
   <div class="container">
     <h2>Bill Payment:</h2>
     <form onsubmit="event.preventDefault();">
@@ -329,31 +315,31 @@ nav a {
 
       <div id="VodafoneFields" class="hidden">
         <label>Mobile Number:</label>
-        <input type="text" required>
+        <input id="mobNum" type="text" required>
       </div>
 
       <div id="GascoFields" class="hidden">
         <label>Subscription Number:</label>
-        <input type="text" required>
+        <input id="subNum" type="text" required>
         <br>
         <label>Mobile Number:</label>
-        <input type="text" required>
+        <input id="mobNum" type="text" required>
       </div>
 
       <div id="EnergecoFields" class="hidden">
         <label>Subscription Number:</label>
-        <input type="text" required>
+        <input id="subNum" type="text" required>
         <br>
         <label>Mobile Number:</label>
-        <input type="text" required>
+        <input id="mobNum" type="text" required>
       </div>
 
       <div id="WatercooFields" class="hidden">
         <label>Subscription Number:</label>
-        <input type="text" required>
+        <input id="subNum" type="text" required>
         <br>
         <label>Mobile Number:</label>
-        <input type="text" required>
+        <input id="mobNum" type="text" required>
       </div>
       <br>
       <button class="btn" type="submit" onclick="redirectToPay()">Continue To Pay</button>
@@ -378,7 +364,17 @@ nav a {
     }
 
     function redirectToPay() {
-      alert("Please fill the fields");
+      if(document.getElementById("mobNum").value != "") {
+        if(document.getElementById("dropdown").value != "Vodafone") {
+          if(document.getElementById("subNum").value != "") {
+            window.location.href = "Bill_Payed.html";
+          }
+        } else {
+          window.location.href = "Bill_Payed.html";
+        }
+      } else {
+          alert("Please fill the fields");  
+      }
     }
   </script>
 </body>

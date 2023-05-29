@@ -164,6 +164,48 @@
             opacity: 1;
             visibility: visible;
         }
+
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #closeBtn {
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            color: #fff;
+            font-size: 3vh;
+            background-color: #6a0572;
+            border-radius: 3px;
+            box-shadow: 0px 2px black;
+            border: none;
+            display: block;
+            margin: 1% auto;
+            padding: 0.5%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4f025b;
+        }
+
     </style>
 </head>
 <body>
@@ -201,7 +243,7 @@
     <div class="container">
         <h1>Loan Application</h1>
 
-        <form action="loans.html" method="POST">
+        <form id="loan-form" action="loans.html" method="post">
             <fieldset>
                 <legend>Basic Information</legend>
                 <label for="first-name">First Name</label>
@@ -279,14 +321,47 @@
                 <input type="text" name="cosigner-occupation">
             </fieldset>
 
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" id="submitBtn">
         </form>
     </div>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+          <h2>Thank you!</h2>
+          <p style="color: rgb(43, 2, 79);"> submission was successful.</p>
+          <button id="closeBtn">Close</button>
+        </div>
+      </div>
     <script>
       function toggleNotifi() {
           var box = document.getElementById("box");
           box.classList.toggle("show");
       }
+
+      // Show the popup
+      function showPopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "flex";
+        }
+
+        // Hide the popup
+        function hidePopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "none";
+        }
+
+        // Handle form submission
+        document.getElementById("loan-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Show the popup
+            showPopup();
+        });
+
+        // Close button event handler
+        document.getElementById("closeBtn").addEventListener("click", function() {
+            hidePopup();
+            location.reload();
+        });
   </script>
 </body>
 </html>
