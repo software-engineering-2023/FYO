@@ -339,60 +339,60 @@ nav a {
     </div>
 </div>
 <br>
-  <div class="container">
-    <h2>Bill Payment:</h2>
-    <form onsubmit="event.preventDefault();">
-      <select id="dropdown" onchange="showFields()" required>
-        <option value="">Bill Name</option>
-        <option value="Vodafone">Vodafone</option>
-        <option value="Gasco">Gasco</option>
-        <option value="Energeco">Energeco</option>
-        <option value="Watercoo">Watercoo</option>
-      </select>
+<div class="container">
+  <h2>Bill Payment:</h2>
+  <form onsubmit="event.preventDefault();">
+    <select id="dropdown" onchange="showFields()" required>
+      <option value="">Bill Name</option>
+      <option value="Vodafone">Vodafone</option>
+      <option value="Gasco">Gasco</option>
+      <option value="Energeco">Energeco</option>
+      <option value="Watercoo">Watercoo</option>
+    </select>
 
-      <div id="VodafoneFields" class="hidden">
-        <label>Mobile Number:</label>
-        <input id="mobNum" type="text" required>
-      </div>
+    <div id="VodafoneFields" class="hidden">
+      <label>Mobile Number:</label>
+      <input id="mobNumVodafone" type="text" required>
+    </div>
 
-      <div id="GascoFields" class="hidden">
-        <label>Subscription Number:</label>
-        <input id="subNum" type="text" required>
-        <br>
-        <label>Mobile Number:</label>
-        <input id="mobNum" type="text" required>
-      </div>
-
-      <div id="EnergecoFields" class="hidden">
-        <label>Subscription Number:</label>
-        <input id="subNum" type="text" required>
-        <br>
-        <label>Mobile Number:</label>
-        <input id="mobNum" type="text" required>
-      </div>
-
-      <div id="WatercooFields" class="hidden">
-        <label>Subscription Number:</label>
-        <input id="subNum" type="text" required>
-        <br>
-        <label>Mobile Number:</label>
-        <input id="mobNum" type="text" required>
-      </div>
+    <div id="GascoFields" class="hidden">
+      <label>Subscription Number:</label>
+      <input id="subNumGasco" type="text" required>
       <br>
-      <button class="btn" type="submit" onclick="redirectToPay()">Continue To Pay</button>
-    </form>
-  </div>
+      <label>Mobile Number:</label>
+      <input id="mobNumGasco" type="text" required>
+    </div>
+
+    <div id="EnergecoFields" class="hidden">
+      <label>Subscription Number:</label>
+      <input id="subNumEnergeco" type="text" required>
+      <br>
+      <label>Mobile Number:</label>
+      <input id="mobNumEnergeco" type="text" required>
+    </div>
+
+    <div id="WatercooFields" class="hidden">
+      <label>Subscription Number:</label>
+      <input id="subNumWatercoo" type="text" required>
+      <br>
+      <label>Mobile Number:</label>
+      <input id="mobNumWatercoo" type="text" required>
+    </div>
+    <br>
+    <button class="btn" type="submit" onclick="redirectToPay()">Continue To Pay</button>
+  </form>
+</div>
 
   <script>
     function toggleNotifi() {
             var box = document.getElementById("box");
             box.classList.toggle("show");
         }
+
     function showFields() {
-
       var selectedOption = document.getElementById("dropdown").value;
-
       var allFields = document.getElementsByClassName("hidden");
+
       for (var i = 0; i < allFields.length; i++) {
         allFields[i].classList.remove("visible");
       }
@@ -401,16 +401,26 @@ nav a {
     }
 
     function redirectToPay() {
-      if(document.getElementById("mobNum").value != "") {
-        if(document.getElementById("dropdown").value != "Vodafone") {
-          if(document.getElementById("subNum").value != "") {
-            window.location.href = "Bill_Payed.html";
-          }
-        } else {
-          window.location.href = "Bill_Payed.html";
-        }
+      var selectedOption = document.getElementById("dropdown").value;
+      var mobNum, subNum;
+
+      if (selectedOption === "Vodafone") {
+        mobNum = document.getElementById("mobNumVodafone").value;
+      } else if (selectedOption === "Gasco") {
+        mobNum = document.getElementById("mobNumGasco").value;
+        subNum = document.getElementById("subNumGasco").value;
+      } else if (selectedOption === "Energeco") {
+        mobNum = document.getElementById("mobNumEnergeco").value;
+        subNum = document.getElementById("subNumEnergeco").value;
+      } else if (selectedOption === "Watercoo") {
+        mobNum = document.getElementById("mobNumWatercoo").value;
+        subNum = document.getElementById("subNumWatercoo").value;
+      }
+
+      if (mobNum && (selectedOption === "Vodafone" || subNum)) {
+        window.location.href = "Bill_Payed.html";
       } else {
-          alert("Please fill the fields");  
+        alert("Please fill in the required fields");
       }
     }
   </script>
