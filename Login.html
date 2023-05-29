@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <meta charset="utf-8" />
+    <style>
+        body {
+          background-size: cover;
+          display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(rgba(91, 0, 101, 0.813), rgba(127, 3, 141, 0.658)), url("https://www.tripsavvy.com/thmb/56TuzvP76oJSy6KQPGzFT20TPIg=/6292x4559/filters:fill(auto,1)/pound-coins-and-bank-notes-909209056-5b89a83946e0fb005098cfa8.jpg");
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 8px;
+            width: 200px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button[type="submit"] {
+            background-color: hsl(279, 40%, 45%);
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: hsl(279, 40%, 45%);
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="login">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Enter username" required />
+            </div>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter password" required />
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+        <p class="error-message" id="error-message"></p>
+        <a href="Register.html">Don't have an account? RegisterHere!</a>
+    </div>
+
+    <script>
+        document.getElementById("login").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username === "admin" && password === "admin") {
+                window.location.href = "admin.html";
+            } else if (username === "banker" && password === "banker") {
+                window.location.href = "banker.html";
+            } else if (username === "client" && password === "client") {
+                window.location.href = "client.html";
+            } else {
+                document.getElementById("error-message").textContent = "Invalid Username/Password.";
+            }
+        });
+    </script>
+</body>
+</html>

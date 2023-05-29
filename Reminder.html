@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            background-color: #28004d;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background-color: #4f025b;
+            width: 80%;
+            margin: 5% auto;
+            border-radius: 15px;
+            box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.6);
+            padding: 2%;
+        }
+
+        h2 {
+            text-align: center;
+            background-color: #4f025b;
+            font-size: 3.5vh;
+            color: #fff;
+            font-weight: 500;
+            padding: 15px;
+            border-radius: 15px 15px 0 0;
+            margin: -2% -2% 3% -2%;
+        }
+
+        form {
+            border: 1px solid #fff;
+            padding: 2%;
+            border-radius: 15px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 2% 0;
+            display: block;
+            border-radius: 2px;
+            border: none;
+            background-color: #f8f8f8;
+            color: #000;
+            border-bottom: 1px solid #fff;
+            font-size: 2.1vh;
+            transition: background-color 0.3s;
+        }
+
+        input[type="text"]::placeholder,
+        input[type="date"]::placeholder,
+        input[type="email"]::placeholder,
+        select::placeholder {
+            color: #999;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            color: #fff;
+            font-size: 3vh;
+            background-color: #6a0572;
+            border-radius: 3px;
+            box-shadow: 0px 2px black;
+            border: none;
+            display: block;
+            margin: 1% auto;
+            padding: 0.5%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4f025b;
+        }
+
+        .w3-top {
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .w3-bar {
+            background-color: #fff !important;
+        }
+
+        .w3-bar-item {
+            color: #28004d !important;
+        }
+
+        .w3-bar-item:hover {
+            background-color: #6a0572 !important;
+        }
+
+        .w3-top .icon img {
+            vertical-align: middle;
+            width: 35px; /* Adjust the width as per your preference */
+        }
+        .w3-top .icon {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .w3-top .icon span {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .w3-top .notifi-box {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: fit-content;
+            max-width: 400px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1;
+        }
+
+        .w3-top .notifi-box h2 {
+            font-size: 20px;
+            color: #ffffff;
+            margin: 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .w3-top .notifi-item {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .w3-top .notifi-item p {
+            margin: 0;
+            padding: 5px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .w3-top .notifi-box.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        
+        /* Navbar styles */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Dropdown menu styles */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  padding: 0;
+}
+
+.dropdown-menu li {
+  display: block;
+}
+
+.dropdown-menu a {
+  padding: 10px;
+  color: #333;
+}
+
+.dropdown-menu a:hover {
+  background-color: #ccc;
+}
+
+.popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #closeBtn {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <!--
+        <a href="index.html" class="w3-bar-item w3-button"><b>FYO</b> Bank</a>
+        -->
+        <!-- Float links to the right. Hide them on small screens -->
+        <!--
+        <div class="w3-right w3-hide-small">
+            <a href="transaction.html" class="w3-bar-item w3-button dropdown">Transaction</a>
+            <a href="my_account.html" class="w3-bar-item w3-button">Account Details</a>
+            <a href="Credit_card_form.html" class="w3-bar-item w3-button">Card Application</a>
+            <a href="add_beneficiary.html" class="w3-bar-item w3-button">Add beneficiary</a>
+            <a href="loans.html" class="w3-bar-item w3-button">Loan</a>
+            <a href="Login.html" class="w3-bar-item w3-button">Sign up</a>
+            <div class="icon" onclick="toggleNotifi()">
+                <img src="bell.png" alt=""> <span>17</span>
+            </div>
+            <div class="notifi-box" id="box">
+                <h2>Notifications <span>17</span></h2>
+                <div class="notifi-item">
+                    <p>Don't miss your electricity payment</p>
+                    <p>A new certificate Available check it</p>
+                    <p>You have spent 200 pounds</p>
+                    <p>Don't miss your Credit card payment</p>
+                    <p>Points will expire next month</p>
+                    <p>you have recieved 10000 pounds</p>
+                    <p>Low balance alert</p>
+                    <p>Unusual account activity alert</p>
+                </div>
+            </div>
+        </div>
+        -->
+        <!---->
+        <nav>
+            <ul>
+                <li><a href="Client.html" class="w3-bar-item w3-button"><b>FYO</b> Bank</a></li>
+                <li class="dropdown">
+                    <a href="#" class="w3-bar-item w3-button">Transaction</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="add_beneficiary.html">Transfer through account</a></li>
+                        <li><a href="transaction.html">Pay with card</a></li>
+                        <li><a href="#">Pay bills</a></li>
+                    </ul>
+                </li>
+              <li><a href="my_account.html" class="w3-bar-item w3-button">Open/Close Account</a></li>
+              <li><a href="Credit_card_form.html" class="w3-bar-item w3-button">Card Application</a></li>
+              <li><a href="Report.html" class="w3-bar-item w3-button">Report</a></li>
+              <li class="dropdown">
+                <a href="loans.html" class="w3-bar-item w3-button">Loan</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Apply for loan</a></li>
+                    <li><a href="#">Pay installment</a></li>
+                </ul>
+              </li>
+              <li><a href="Login.html" class="w3-bar-item w3-button">Sign up</a></li>
+              <div class="icon" onclick="toggleNotifi()">
+                <img src="bell.png" alt=""> <span>17</span>
+            </div>
+            <div class="notifi-box" id="box">
+                <h2>Notifications <span>17</span></h2>
+                <div class="notifi-item">
+                    <p>Don't miss your electricity payment</p>
+                    <p>A new certificate Available check it</p>
+                    <p>You have spent 200 pounds</p>
+                    <p>Don't miss your Credit card payment</p>
+                    <p>Points will expire next month</p>
+                    <p>you have recieved 10000 pounds</p>
+                    <p>Low balance alert</p>
+                    <p>Unusual account activity alert</p>
+                </div>
+            </div>
+          </ul>
+          </nav>
+    </div>
+</div>
+    <br>
+   <div class="container">
+        <h2>Reminder</h2>
+        <form id="transfer-form" method="post">
+           <select name="Bill Reminder" id="Bill Reminder" required>
+                        <option value="" disabled selected>Bill Type</option>
+                        <option value="Electricity">Electricity</option>
+                        <option value="Gas">Gas</option>
+                        <option value="Water">Water</option>
+                        <option value="Telephone">Telephone</option>
+                    </select>
+                    <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br>
+        <input type="submit" value="Reminder" id="submitBtn">
+                </div>
+            </fieldset><br>
+            <!--
+            <input type="submit" value="Transfer" class="btn">
+            -->
+             <!--<Button id="submit">Submit</Button>
+                 -->
+        </form>
+    </div>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+          <h2>Thank you!</h2>
+          <p style="color: rgb(43, 2, 79);"> Reminder successfully set.</p>
+          <button id="closeBtn">Close</button>
+        </div>
+      </div>
+    <script>
+        function toggleNotifi() {
+            var box = document.getElementById("box");
+            box.classList.toggle("show");
+        }
+
+        
+       
+        // Show the popup
+        function showPopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "flex";
+        }
+
+        // Hide the popup
+        function hidePopup() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "none";
+        }
+
+        // Handle form submission
+        document.getElementById("transfer-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Show the popup
+            showPopup();
+        });
+
+        // Close button event handler
+        document.getElementById("closeBtn").addEventListener("click", function() {
+            hidePopup();
+            location.reload();
+        });
+
+    </script>
+   
+</body>
+</html>

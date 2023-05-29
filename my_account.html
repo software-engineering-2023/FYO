@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        ::-webkit-input-placeholder {
+            font-size: 2.1vh;
+        }
+
+        body {
+            background-color: #28004d;
+        }
+
+        .container_regfrm_container_parent_child {
+            border: 1px solid white;
+            padding: 2%;
+            margin: 5% auto;
+            background-color: #ffffff;
+            box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(88, 80, 81, 0.5);
+            width: 80%;
+            border-radius: 15px;
+        }
+
+        .container_regfrm_container_parent_child h3 {
+            text-align: center;
+            background-color: #4f025b;
+            font-size: 3.5vh;
+            color: #ffffff;
+            font-weight: 500;
+            padding: 15px;
+            border-radius: 15px 15px 0 0;
+            margin: -2% -2% 3% -2%;
+        }
+
+        .container_regfrm_container_parent_child input[type="text"],
+        input[type="date"],
+        select {
+            width: 20%;
+            padding: 0.5%;
+            margin: 2%;
+            color: #5e5e5e;
+            border: 1px solid #4f025b;
+            border-radius: 2px;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+            font-size: 2.1vh;
+        }
+
+        .container_regfrm_container_parent_child input[name="homeaddrs"],
+        .container_regfrm_container_parent_child input[name="Workaddrs"] {
+            width: 94%;
+        }
+
+        .container_regfrm_container_parent_child input[type="submit"] {
+            width: 12%;
+            color: white;
+            font-size: 3vh;
+            background-color: #6a0572;
+            border-radius: 3px;
+            box-shadow: 0px 2px black;
+            border: 0px;
+            display: block;
+            margin: 1% auto;
+            padding: 0.5%;
+        }
+
+        .container_regfrm_container_parent_child input[type="submit"]:hover {
+            cursor: pointer;
+            background-color: #4f025b;
+        }
+
+        .w3-top .icon {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .w3-top .icon img {
+            vertical-align: middle;
+            width: 35px; /* Adjust the width as per your preference */
+        }
+
+        .w3-top .icon span {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .w3-top .notifi-box {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: fit-content;
+            max-width: 400px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1;
+        }
+
+        .w3-top .notifi-box h2 {
+            font-size: 20px;
+            color: #4f025b;
+            margin: 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .w3-top .notifi-item {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .w3-top .notifi-item p {
+            margin: 0;
+            padding: 5px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .w3-top .notifi-box.show {
+            opacity: 1;
+            visibility: visible;
+        }
+  
+    </style>
+</head>
+<body>
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <a href="Client.html" class="w3-bar-item w3-button"><b>FYO</b> Bank</a>
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="w3-right w3-hide-small">
+            <a href="transaction.html" class="w3-bar-item w3-button">Transaction</a>
+            <a href="my_account.html" class="w3-bar-item w3-button">Account Details</a>
+            <a href="Credit_card_form.html" class="w3-bar-item w3-button">Card Application</a>
+            <a href="add_beneficiary.html" class="w3-bar-item w3-button">Add beneficiary</a>
+            <a href="loans.html" class="w3-bar-item w3-button">Loan</a>
+            <a href="Login.html" class="w3-bar-item w3-button">Sign up</a>
+            <div class="icon" onclick="toggleNotifi()">
+                <img src="bell.png" alt=""> <span>17</span>
+            </div>
+            <div class="notifi-box" id="box">
+                <h2>Notifications <span>17</span></h2>
+                <div class="notifi-item">
+                    <p>Don't miss your electricity payment</p>
+                    <p>A new certificate Available check it</p>
+                    <p>You have spent 200 pounds</p>
+                    <p>Don't miss your Credit card payment</p>
+                    <p>Points will expire next month</p>
+                    <p>you have recieved 10000 pounds</p>
+                    <p>Low balance alert</p>
+                    <p>Unusual account activity alert</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+
+<div class="container_regfrm_container_parent_child">
+    <h3>Open Account</h3>
+    <form action="#">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" placeholder="Your First Name" required><br>
+
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" placeholder="Your Last Name" required><br>
+
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required><br>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="Your Email Address" required><br>
+
+        <label for="phonenumber">Phone Number:</label>
+        <input type="text" id="phonenumber" name="phonenumber" placeholder="Your Phone Number" required><br>
+
+        <label for="homeaddrs">Home Address:</label>
+        <input type="text" id="homeaddrs" name="homeaddrs" placeholder="Your Home Address" required><br>
+
+        <label for="Workaddrs">Work Address:</label>
+        <input type="text" id="Workaddrs" name="Workaddrs" placeholder="Your Work Address" required><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<div class="container_regfrm_container_parent_child">
+    <h3>Close Account</h3>
+    <form action="#">
+        <label for="AccountNumber">Account Number:</label>
+        <input type="text" id="Accountnumber" name="Accountnumber" placeholder="Enter Account no." required><br>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<script>
+    function toggleNotifi() {
+        var box = document.getElementById("box");
+        box.classList.toggle("show");
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FYO Bank</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body {
+  font-family: "Raleway", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #440a67;
+  color: #ffffff;
+}
+
+header {
+  background-color: #440a67;
+  height: 800px;
+}
+
+.navbar {
+  background-color: #440a67;
+  overflow: hidden;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background-color: #5d158f;
+}
+
+.w3-text-white {
+  color: #ffffff !important;
+}
+
+.w3-container {
+  margin-top: 30px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: #440a67;
+}
+
+.card img {
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+}
+
+.card-container {
+  padding: 16px;
+}
+
+.card-title {
+  color: #ffffff;
+  font-size: 24px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.card-text {
+  color: #ffffff;
+  text-align: center;
+}
+
+.card-link {
+  color: #ffffff;
+  text-decoration: none;
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: auto;
+}
+
+.contact-form input[type="text"],
+.contact-form button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.contact-form button[type="submit"] {
+  background-color: #440a67;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.contact-form button[type="submit"]:hover {
+  background-color: #5d158f;
+}
+
+.footer {
+  background-color: #440a67;
+  color: #ffffff;
+  padding: 16px;
+  text-align: center;
+}
+.image-container {
+  width: 800px; /* Adjust the width to your desired size */
+  height: 700px; /* Adjust the height to your desired size */
+  overflow: hidden;
+  border-radius: 50%; /* Creates an oval shape */
+  position: absolute;
+  right: 0;
+}
+
+  .header-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintains the image's aspect ratio and fills the container */
+  }
+  
+  .header-text {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  width: calc(100% - 360px); /* Adjust the width as needed based on image size */
+  padding: 20px;
+  background-color: #440a67;
+  opacity: 0.8;
+  color: #fff;
+}
+
+.header-text {
+  position: relative;
+  padding: 20px;
+  background-color: #440a67;
+  opacity: 0.8;
+  color: #fff;
+  overflow: hidden;
+}
+
+.header-text h1 {
+  margin-top: 0;
+  padding: 10px;
+  font-size: 42px;
+}
+  .w3-top {
+            position: fixed;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .w3-bar {
+            background-color: #fff !important;
+        }
+
+        .w3-bar-item {
+            color: #28004d !important;
+        }
+
+        .w3-bar-item:hover {
+            background-color: #6a0572 !important;
+        }
+        .w3-top .icon img {
+            vertical-align: middle;
+            width: 35px; /* Adjust the width as per your preference */
+        }
+        .w3-top .icon {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .w3-top .icon span {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: red;
+            color: white;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .w3-top .notifi-box {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: fit-content;
+            max-width: 400px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1;
+        }
+
+        .w3-top .notifi-box h2 {
+            font-size: 20px;
+            color: #4f025b;
+            margin: 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .w3-top .notifi-item {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .w3-top .notifi-item p {
+            margin: 0;
+            padding: 5px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .w3-top .notifi-box.show {
+            opacity: 1;
+            visibility: visible;
+        }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+      <a href="Client.html" class="w3-bar-item w3-button"><b>FYO</b> Bank</a>
+      <!-- Float links to the right. Hide them on small screens -->
+      <div class="w3-right w3-hide-small">
+          <a href="transaction.html" class="w3-bar-item w3-button">Transaction</a>
+          <a href="my_account.html" class="w3-bar-item w3-button">Account Details</a>
+          <a href="Credit_card_form.html" class="w3-bar-item w3-button">Card Application</a>
+          <a href="add_beneficiary.html" class="w3-bar-item w3-button">Add beneficiary</a>
+          <a href="loans.html" class="w3-bar-item w3-button">Loan</a>
+          <a href="Login.html" class="w3-bar-item w3-button">Sign up</a>
+          <div class="icon" onclick="toggleNotifi()">
+              <img src="bell.png" alt=""> <span>17</span>
+          </div>
+          <div class="notifi-box" id="box">
+              <h2>Notifications <span>17</span></h2>
+              <div class="notifi-item">
+                  <p>Don't miss your electricity payment</p>
+                  <p>A new certificate Available check it</p>
+                  <p>You have spent 200 pounds</p>
+                  <p>Don't miss your Credit card payment</p>
+                  <p>Points will expire next month</p>
+                  <p>you have recieved 10000 pounds</p>
+                  <p>Low balance alert</p>
+                  <p>Unusual account activity alert</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<br>
+
+
+<!-- Header -->
+<!-- Header -->
+<header>
+  <div class="w3-display-middle w3-margin-top">
+    <div class="image-container">
+      <img src="bank-01-01.jpg" class="header-image">
+    
+    </div>
+  </div>
+  <div class="header-text">
+    <h1 class="w3-xxlarge w3-text-white" style="background-color: #440a67;"><span style="background-color: #ffffff; color: #440a67; padding: 5px 10px; border-radius: 5px;">FYO</span> <span class="w3-hide-small w3-text-light-grey">Bank</span></h1>
+    <p class="w3-large w3-text-white" style="background-color: #440a67;">Welcome to FYO Bank - where finance meets funky vibes! Get ready to experience banking like never before.</p>
+    <p class="w3-text-white" style="background-color: #440a67;">With our innovative online platform, you can effortlessly manage your finances, explore transaction histories, transfer funds, and more. We've got your back every step of the way.</p>
+    <p class="w3-text-white" style="background-color: #440a67;">But that's not all! FYO Bank is all about empowering you to chase your dreams. Whether it's pursuing higher education, buying your dream house, or starting a passion project, our funky loans are designed to make it happen.</p>
+    <p class="w3-text-white" style="background-color: #440a67;">Join us today and let's embark on a financial adventure together. It's time to unleash your financial potential and rock the world!</p>
+  </div>
+</header>
+
+
+
+<!-- Loan Section -->
+<div class="w3-container">
+  <div class="w3-row-padding">
+    <div class="w3-col m3">
+      <div class="card">
+        <a href="loans.html"><img src="Education-Loan.jpg" alt="Education Loan"></a>
+        <div class="card-container">
+          <h2 class="card-title">Education Loan</h2>
+          <p class="card-text">Education loans (student loans) are advances given by banks or financial institutions to students to assist them in paying for their higher education costs.</p>
+          <a href="loan.html" class="card-link">Get Details</a>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m3">
+      <div class="card">
+        <a href="loans.html"><img src="House-Loan.jpg" alt="House Loan"></a>
+        <div class="card-container">
+          <h2 class="card-title">House Loan</h2>
+          <p class="card-text">House loans are advances given by banks or financial institutions to assist individuals in purchasing or constructing a house.</p>
+          <a href="loan.html" class="card-link">Get Details</a>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m3">
+      <div class="card">
+        <a href="loans.html"><img src="Gold-Loan.jpg" alt="Gold Loan"></a>
+        <div class="card-container">
+          <h2 class="card-title">Gold Loan</h2>
+          <p class="card-text">Gold loans are advances given by banks or financial institutions to individuals by keeping their gold assets as collateral.</p>
+          <a href="loan.html" class="card-link">Get Details</a>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m3">
+      <div class="card">
+        <a href="loans.html"><img src="Personal_Loan.jpg" alt="Personal Loan"></a>
+        <div class="card-container">
+          <h2 class="card-title">Personal Loan</h2>
+          <p class="card-text">Personal loans are advances given by banks or financial institutions to individuals for personal use, such as medical expenses, home renovation, or vacation.</p>
+          <a href="loan.html" class="card-link">Get Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div class="w3-container">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact Us</h3>
+  <div class="contact-form">
+    <input type="text" placeholder="Name">
+    <input type="text" placeholder="Email">
+    <input type="text" placeholder="Subject">
+    <textarea placeholder="Message" rows="4"></textarea>
+    <button type="submit">Send Message</button>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>&copy; 2023 FYO Bank. All rights reserved. | Designed by [Your Name]</p>
+</footer>
+<script>
+  function toggleNotifi() {
+      var box = document.getElementById("box");
+      box.classList.toggle("show");
+  }
+</script>
+</body>
+</html>
