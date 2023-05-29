@@ -90,10 +90,11 @@
         }
 
         .w3-bar-item {
-            color: #28004d !important;
+            color: #28004d;
         }
 
         .w3-bar-item:hover {
+            color: #fff !important;
             background-color: #6a0572 !important;
         }
 
@@ -102,9 +103,21 @@
             width: 35px; /* Adjust the width as per your preference */
         }
         .w3-top .icon {
-            position: relative;
+            position: absolute;
             display: inline-block;
             cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .w3-top .icon {
+                right: 10px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .w3-top .icon {
+                right: 20px;
+            }
         }
 
         .w3-top .icon span {
@@ -187,6 +200,7 @@ nav a {
 }
 
 .dropdown-menu {
+    top: 80%;   
   display: none;
   position: absolute;
   background-color: #f9f9f9;
@@ -204,7 +218,8 @@ nav a {
 }
 
 .dropdown-menu a:hover {
-  background-color: #ccc;
+    color: #FFF;
+    background-color: #6a0572
 }
 
 .popup {
@@ -272,20 +287,15 @@ nav a {
                     <ul class="dropdown-menu">
                         <li><a href="add_beneficiary.html">Transfer through account</a></li>
                         <li><a href="transaction.html">Pay with card</a></li>
-                        <li><a href="#">Pay bills</a></li>
+                        <li><a href="Pay_Bill.html">Pay bills</a></li>
+                        <li><a href="Loan_Payment.html">Loan installments</a></li>
                     </ul>
                 </li>
               <li><a href="my_account.html" class="w3-bar-item w3-button">Open/Close Account</a></li>
               <li><a href="Credit_card_form.html" class="w3-bar-item w3-button">Card Application</a></li>
               <li><a href="Report.html" class="w3-bar-item w3-button">Report</a></li>
-              <li class="dropdown">
-                <a href="loans.html" class="w3-bar-item w3-button">Loan</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Apply for loan</a></li>
-                    <li><a href="#">Pay installment</a></li>
-                </ul>
-              </li>
-              <li><a href="Login.html" class="w3-bar-item w3-button">Sign up</a></li>
+              <li><a href="loans.html" class="w3-bar-item w3-button">Apply For Loan</a></li>
+              <li style="margin-left: 22%; margin-right: 2%;"><a href="Login.html" class="w3-bar-item w3-button">Log out</a></li>
               <div class="icon" onclick="toggleNotifi()">
                 <img src="bell.png" alt=""> <span>17</span>
             </div>
