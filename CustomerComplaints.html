@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Customer Complaints</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: #f2f0ff;
+      font-family: Arial, sans-serif;
+      background-image: linear-gradient(rgba(199, 164, 197, 0.813), rgba(210, 146, 218, 0.658)), url("/Users/farahsoliman/Downloads/MS3_Client/OnlineBanking-main/desktop-wallpaper-bank-website-design-we-test-the-websites-of-3-top-u-s-banks-banking.jpg");
+      background-size: cover;
+      background-position: center
+    }
+
+    .logo-panel {
+      background-color: #84368c;
+      padding: 10px;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 0;
+      text-align: center;
+      flex-grow: 1;
+      color: #fff;
+    }
+
+    .avatar {
+      margin-bottom: 10px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .welcome-text {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      margin: 0;
+    }
+
+    .logout-button {
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background-color: #6a2972;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    .logout-button:hover {
+      background-color: #84368c;
+    }
+    .home-button {
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background-color: #6a2972;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    .home-button:hover {
+      background-color: #84368c;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 800px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      color: #555;
+    }
+
+    h1 {
+      margin: 0 0 20px 0;
+      color: purple;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .footer {
+      background-color: #84368c;
+      padding: 10px;
+      color: #fff;
+      font-size: 14px;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .popup {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #6a2972;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      display: inline-block;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+  </style>
+  <script>
+    // Function to handle checkbox click event
+    function handleCheckboxClick(checkbox, email) {
+      if (checkbox.checked) {
+        var popup = document.createElement("div");
+        popup.className = "popup";
+        popup.innerHTML = "Complaint solved. Customer email: " + email;
+        document.body.appendChild(popup);
+
+        // Show popup message
+        setTimeout(function() {
+          popup.style.opacity = "1";
+        }, 100);
+
+        // Remove popup and row after 2 seconds
+        setTimeout(function() {
+          popup.style.opacity = "0";
+          setTimeout(function() {
+            var row = checkbox.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+            popup.parentNode.removeChild(popup);
+          }, 300);
+        }, 2000);
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="logo-panel">
+    <div>
+      <img class="avatar" src="./img/avatar3.png">
+      <h1 class="welcome-text">Banker</h1>
+    </div>
+    <h1 class="logo" style="flex-grow: 1;">FYO Bank</h1>
+    <a class="home-button" href="bankerHome.html">Home</a>
+    <a class="logout-button" href="Login.html">Logout</a>
+  
+  </div>
+  <div class="container">
+    <div class="content">
+      <h1>Customer Complaints</h1>
+      <table>
+        <tr>
+          <th></th>
+          <th>Complaint ID</th>
+          <th>Customer Name</th>
+          <th>Account Number</th>
+          <th>Customer Email</th>
+          <th>Complaint Details</th>
+        </tr>
+        <tr>
+          <td><input type="checkbox" onclick="handleCheckboxClick(this, 'johnsmith@example.com')"></td>
+          <td>001</td>
+          <td>John Smith</td>
+          <td>1234567890</td>
+          <td>johnsmith@example.com</td>
+          <td>Credit card billing discrepancy</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" onclick="handleCheckboxClick(this, 'janedoe@example.com')"></td>
+          <td>002</td>
+          <td>Jane Doe</td>
+          <td>0987654321</td>
+          <td>janedoe@example.com</td>
+          <td>Technical issues with online banking</td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" onclick="handleCheckboxClick(this, 'michaeljohnson@example.com')"></td>
+          <td>003</td>
+          <td>Michael Johnson</td>
+          <td>5678901234</td>
+          <td>michaeljohnson@example.com</td>
+          <td>Incorrect data in account statement</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="footer">
+    All rights reserved FYO Bank
+  </div>
+</body>
+</html>
