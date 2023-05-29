@@ -2,51 +2,43 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>FYO</title>
+  <title>bankerHome.FYO</title>
   <style>
     /* Add your CSS styles here */
-    body {
-      font-family: Arial, sans-serif;
-      
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      text-align: left;
-       
     }
-    h2{
+    .logo-panel {
+      background-color: #84368c;
+      padding: 10px;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    h2 {
       color: rgb(30, 17, 34);
       text-align: center;
     }
-    header {
-      background-color: #450697;
-      color: #fff;
-      text-align: left;
-      padding: 10px;
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-family: Arial, sans-serif;
+      background-image: url("/Users/farahsoliman/Downloads/MS3_Client/OnlineBanking-main/desktop-wallpaper-bank-website-design-we-test-the-websites-of-3-top-u-s-banks-banking.jpg");
+      background-size: cover;
+      background-position: center;
     }
     
     h1 {
-      margin: 0;
-      padding: 10px;
-      
+      margin: 0 0 20px 0;
+      color: purple;
     }
-    
-    nav {
-      background-color: #b8afc2;
-      color: #fff;
-      padding: 10px;
-      text-align: right;
-    }
-    
-    nav a {
-      color: rgb(92, 37, 180);
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    
-    nav a.active {
-      font-weight: bold;
-    }
-    
+
     .grid-container {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -55,16 +47,19 @@
     }
     
     .grid-item {
-      background-color: rgb(255, 255, 255);
+      background-color: rgba(180, 149, 184, 0.8);
       border: 1px solid #ccc;
       border-radius: 10px;
       padding: 60px; /* Increase the padding value to make the buttons bigger */
       cursor: pointer;
-      transition: background-color 0.3s;
+      transition: background-color 0.3s, transform 0.3s;
+      transform-style: preserve-3d;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     }
     
     .grid-item:hover {
       background-color: #b8afc2;
+      transform: translate(0, -5px);
     }
     
     section {
@@ -94,8 +89,62 @@
       background-color: #ccc;
     }
     
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 0;
+      text-align: center;
+      flex-grow: 1;
+      color: #fff;
+    }
+
+    .avatar {
+      margin-bottom: 10px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .welcome-text {
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      margin: 0;
+    }
+
+    .logout-button {
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background-color: #6a2972;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    .home-button {
+      padding: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background-color: #6a2972;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    .logout-button:hover {
+      background-color: #84368c;
+    }
+    .home-button:hover {
+      background-color: #84368c;
+    }
+    
     footer {
-      background-color: #450697;
+      background-color: #84368c;
       color: #fff;
       padding: 20px;
       text-align: center;
@@ -103,33 +152,32 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>FYO Bank</h1>
-  </header>
-  
-  <nav>
-    <a href="#" class="active">Home</a>
-    <a href="#">Logout</a>
-  </nav>
+
+  <div class="logo-panel">
+    <div>
+      <img class="avatar" src="./img/avatar3.png">
+      <h1 class="welcome-text">Banker</h1>
+    </div>
+    <h1 class="logo" style="flex-grow: 1;">FYO Bank</h1>
+    <a class="home-button" href="bankerHome.html">Home</a>
+    <a class="logout-button" href="Login.html">Logout</a>
+  </div>
   
   <div class="grid-container">
-    <div class="grid-item" onclick="location.href='#';">
+    <div class="grid-item" onclick="location.href='accountReq.html';">
       <h2>Account requests</h2>
-      
     </div>
   
-    <div class="grid-item" onclick="location.href='#';">
+    <div class="grid-item" onclick="location.href='CardReq.html';">
       <h2>Card requests</h2>
-    
     </div>
   
-    <div class="grid-item" onclick="location.href='#';">
+    <div class="grid-item" onclick="location.href='LoanReq.html';">
       <h2>Loan Requests</h2>
     </div>
   
-    <div class="grid-item" onclick="location.href='#';">
+    <div class="grid-item" onclick="location.href='CustomerComplaints.html';">
       <h2>Customer Complaints</h2>
-
     </div>
   </div>
   
@@ -150,4 +198,3 @@
   </script>
 </body>
 </html>
-
