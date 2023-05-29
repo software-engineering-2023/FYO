@@ -82,10 +82,11 @@
         }
 
         .w3-bar-item {
-            color: #28004d !important;
+            color: #28004d;
         }
 
         .w3-bar-item:hover {
+            color: #fff !important;
             background-color: #6a0572 !important;
         }
 
@@ -94,9 +95,21 @@
             width: 35px; /* Adjust the width as per your preference */
         }
         .w3-top .icon {
-            position: relative;
+            position: absolute;
             display: inline-block;
             cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .w3-top .icon {
+                right: 10px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .w3-top .icon {
+                right: 20px;
+            }
         }
 
         .w3-top .icon span {
@@ -179,11 +192,13 @@ nav a {
 }
 
 .dropdown-menu {
+    top: 100%;
   display: none;
   position: absolute;
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   padding: 0;
+  margin-top: -15px;    
 }
 
 .dropdown-menu li {
@@ -196,7 +211,8 @@ nav a {
 }
 
 .dropdown-menu a:hover {
-  background-color: #ccc;
+    color: #FFF;
+    background-color: #6a0572
 }
 
   </style>
@@ -204,46 +220,45 @@ nav a {
 <body>
     <div class="w3-top">
         <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-            <nav>
-                <ul>
-                    <li><a href="Client.html" class="w3-bar-item w3-button"><b>FYO</b> Bank</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="w3-bar-item w3-button">Transaction</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="add_beneficiary.html">Transfer through account</a></li>
-                            <li><a href="transaction.html">Pay with card</a></li>
-                            <li><a href="#">Pay bills</a></li>
-                        </ul>
-                    </li>
-                  <li><a href="my_account.html" class="w3-bar-item w3-button">Account Details</a></li>
-                  <li><a href="Credit_card_form.html" class="w3-bar-item w3-button">Card Application</a></li>
-                  <li><a href="Report.html" class="w3-bar-item w3-button">Report</a></li>
-                  <li class="dropdown">
-                    <a href="loans.html" class="w3-bar-item w3-button">Loan</a>
+          <nav>
+            <ul>
+                <li><a href="Client.html" class="w3-bar-item w3-button"><b>FYO</b> Bank</a></li>
+                <li class="dropdown">
+                    <a href="#" class="w3-bar-item w3-button">Transaction</a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Apply for loan</a></li>
-                        <li><a href="#">Pay installment</a></li>
+                        <li><a href="add_beneficiary.html">Transfer through account</a></li>
+                        <li><a href="transaction.html">Pay with card</a></li>
+                        <li><a href="Pay_Bill.html">Pay bills</a></li>
+                        <li><a href="Loan_Payment.html">Loan installments</a></li>
+                        <li><a href="Transaction_History.html">Transaction history</a></li>
                     </ul>
-                  </li>
-                  <li><a href="Login.html" class="w3-bar-item w3-button">Sign up</a></li>
-                  <div class="icon" onclick="toggleNotifi()">
-                    <img src="bell.png" alt=""> <span>17</span>
+                </li>
+              <li><a href="my_account.html" class="w3-bar-item w3-button">Open/Close Account</a></li>
+              <li><a href="Credit_card_form.html" class="w3-bar-item w3-button">Card Application</a></li>
+              <li><a href="Report.html" class="w3-bar-item w3-button">Report</a></li>
+              <li><a href="loans.html" class="w3-bar-item w3-button">Apply For Loan</a></li>
+              <li><a href="Reminder.html" class="w3-bar-item w3-button">Reminders</a></li>
+              <li><a href="RedeemPoints.html" class="w3-bar-item w3-button">Your Points</a></li>
+              <li class="w3-bar-item w3-button"></li>
+              <li style="position: relative; margin-left: 2%; margin-right: 2%;"><a href="Login.html" class="w3-bar-item w3-button">Log out</a></li>
+              <div class="icon" onclick="toggleNotifi()">
+                <img src="bell.png" alt=""> <span>17</span>
+            </div>
+            <div class="notifi-box" id="box">
+                <h2>Notifications <span>17</span></h2>
+                <div class="notifi-item">
+                    <p>Don't miss your electricity payment</p>
+                    <p>A new certificate Available check it</p>
+                    <p>You have spent 200 pounds</p>
+                    <p>Don't miss your Credit card payment</p>
+                    <p>Points will expire next month</p>
+                    <p>you have recieved 10000 pounds</p>
+                    <p>Low balance alert</p>
+                    <p>Unusual account activity alert</p>
                 </div>
-                <div class="notifi-box" id="box">
-                    <h2>Notifications <span>17</span></h2>
-                    <div class="notifi-item">
-                        <p>Don't miss your electricity payment</p>
-                        <p>A new certificate Available check it</p>
-                        <p>You have spent 200 pounds</p>
-                        <p>Don't miss your Credit card payment</p>
-                        <p>Points will expire next month</p>
-                        <p>you have recieved 10000 pounds</p>
-                        <p>Low balance alert</p>
-                        <p>Unusual account activity alert</p>
-                    </div>
-                </div>
-              </ul>
-              </nav>
+            </div>
+          </ul>
+          </nav>
         </div>
     </div>
     <br>
